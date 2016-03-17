@@ -1,0 +1,39 @@
+
+<h1>New Meetup Form</h1>
+
+<% if @success %>
+  <%= @success %>
+<% end %>
+
+<% if @join %>
+  <%= @join %>
+<% end %>
+
+<% if @join_error %>
+  <%= @join_error %>
+<% end %>
+
+<h1> <%= @meetup.meetup_name %> </h1>
+  <li>
+    Description: <%= @meetup.description %>
+  </li>
+  <li>
+    Location: <%= @meetup.location %>
+  </li>
+  <li>
+    Creator: <%= @creator.username %>
+  </li>
+
+<h2>Meetup Members:</h2>
+<% @attendees.each do |user| %>
+<li>
+  <%=user.username%>
+  <img src="<%= user.avatar_url %>" alt="avatar">
+</li>
+<% end %>
+
+<br>
+
+<form action="/meetups/<%= @meetup.id %>" method="post">
+<input type="submit" name="submit" value="Join Group">
+</form>

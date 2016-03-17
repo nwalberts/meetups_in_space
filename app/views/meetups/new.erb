@@ -1,0 +1,20 @@
+
+<% if !@errors.empty? %>
+  <p>
+    <%= @errors %>
+  </p>
+<% end %>
+
+<legend>Add Meetup</legend>
+ <form class="form" method="post" action="/meetups/new">
+   <label for="name">Name</label>
+   <input type="text" name="name" id="name"/>
+
+   <label for="description">Description</label>
+   <input type="text" name="description" id="description"/>
+
+   <label for="location">Location</label>
+   <input type="text" name="location" id="location"/>
+
+   <input type="submit" value="Submit"/>
+ </form>
